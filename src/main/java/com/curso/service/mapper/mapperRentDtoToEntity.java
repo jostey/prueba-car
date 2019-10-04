@@ -1,9 +1,12 @@
 package com.curso.service.mapper;
 
 
+import org.springframework.stereotype.Service;
+
 import com.curso.dto.RentDto;
 import com.curso.model.RentEntity;
 
+@Service
 public class mapperRentDtoToEntity implements MapperService<RentDto, RentEntity>{
 
 	@Override

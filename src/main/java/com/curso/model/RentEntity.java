@@ -4,12 +4,14 @@ import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+@Entity
 public class RentEntity {
 	public RentEntity(Integer id, UserEntity user, CarEntity car, LocalDate initDate, LocalDate finalDate, Double price) {
 		this.id = id;

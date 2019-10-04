@@ -1,9 +1,12 @@
 package com.curso.service.mapper;
 
+import org.springframework.stereotype.Service;
+
 import com.curso.dto.CarDto;
 import com.curso.dto.UserDto;
 import com.curso.model.CarEntity;
 
+@Service
 public class mapperCarEntityToDto implements MapperService<CarEntity, CarDto>{
 
 	@Override
