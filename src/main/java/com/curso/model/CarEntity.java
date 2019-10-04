@@ -1,6 +1,7 @@
 package com.curso.model;
 
 import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,7 +20,7 @@ public class CarEntity {
 	private Integer id;
 	private String model;
 	private String brand;
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne(cascade = CascadeType.PERSIST, fetch=FetchType.LAZY)
 	private UserEntity user;
 	
 	public Integer getId() {

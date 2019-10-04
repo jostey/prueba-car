@@ -1,13 +1,15 @@
 package com.curso.dto;
 
 public class RentDto {
-	public RentDto(UserDto user, CarDto car, Integer initDate, Integer finalDate, Double price) {
+	public RentDto(Integer id, UserDto user, CarDto car, Integer initDate, Integer finalDate, Double price) {
+		this.id = id;
 		this.user = user;
 		this.car = car;
 		this.initDate = initDate;
 		this.finalDate = finalDate;
 		this.price = price;
 	}
+	private Integer id;
 	private UserDto user;
 	private CarDto car;
 	private Integer initDate;
@@ -42,6 +44,12 @@ public class RentDto {
 	}
 	public void setPrice(Double price) {
 		this.price = price;
+	}
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	
 }

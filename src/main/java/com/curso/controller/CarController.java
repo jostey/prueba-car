@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/car")
+@RequestMapping("/user/{userId}/car")
 public class CarController {
 
 }
