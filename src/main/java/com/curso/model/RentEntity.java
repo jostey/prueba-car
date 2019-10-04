@@ -2,6 +2,9 @@ package com.curso.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
+import javax.persistence.ManyToOne;
+
 public class RentEntity {
 	public RentEntity(UserEntity user, CarEntity car, LocalDate initDate, LocalDate finalDate, Double price) {
 		this.user = user;
@@ -10,7 +13,9 @@ public class RentEntity {
 		this.finalDate = finalDate;
 		this.price = price;
 	}
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	private UserEntity user;
+	@ManyToOne
 	private CarEntity car;
 	private LocalDate initDate;
 	private LocalDate finalDate;
