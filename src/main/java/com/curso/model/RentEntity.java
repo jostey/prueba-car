@@ -13,7 +13,9 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class RentEntity {
-	public RentEntity(Integer id, UserEntity user, CarEntity car, LocalDate initDate, LocalDate finalDate, Double price) {
+
+	public RentEntity(Integer id, UserEntity user, CarEntity car, LocalDate initDate, LocalDate finalDate,
+			Double price) {
 		this.id = id;
 		this.user = user;
 		this.car = car;
@@ -21,17 +23,20 @@ public class RentEntity {
 		this.finalDate = finalDate;
 		this.price = price;
 	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@ManyToOne(cascade = CascadeType.PERSIST, fetch=FetchType.LAZY)
 	private UserEntity user;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST, fetch=FetchType.LAZY)
 	private CarEntity car;
 	private LocalDate initDate;
 	private LocalDate finalDate;
 	@Column(precision = 2)
 	private Double price;
+	
+	
 	public UserEntity getUser() {
 		return user;
 	}
