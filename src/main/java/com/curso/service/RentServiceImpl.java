@@ -1,6 +1,5 @@
 package com.curso.service;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.domain.Page;
@@ -20,12 +19,6 @@ public class RentServiceImpl implements RentService{
 
 	@Override
 	public Page<RentEntity> findAll(Pageable page) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<RentEntity> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}

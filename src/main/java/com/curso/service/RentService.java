@@ -1,6 +1,5 @@
 package com.curso.service;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.domain.Page;
@@ -22,12 +21,6 @@ public interface RentService {
 	 * @return Devuelve un Page<RentEntity> de los alquileres. Puede ser vacío.
 	 */
 	public Page<RentEntity> findAll(Pageable page);
-	
-	/**
-	 * Busca todos los alquileres
-	 * @return Devuelve una lista de alquileres.
-	 */
-	public List<RentEntity> findAll();
 	
 	/**
 	 * Guarda un alquiler

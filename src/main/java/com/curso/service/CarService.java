@@ -1,6 +1,5 @@
 package com.curso.service;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.domain.Page;
@@ -22,12 +21,6 @@ public interface CarService {
 	 * @return Devuelve un Page<CarEntity> de los coches. Puede ser vacío.
 	 */
 	public Page<CarEntity> findAll(Pageable page);
-	
-	/**
-	 * Busca todos los coches
-	 * @return Devuelve una lista de libros.
-	 */
-	public List<CarEntity> findAll();
 	
 	/**
 	 * Guarda un coche

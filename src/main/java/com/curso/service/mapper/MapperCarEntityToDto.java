@@ -7,7 +7,7 @@ import com.curso.dto.UserDto;
 import com.curso.model.CarEntity;
 
 @Service
-public class mapperCarEntityToDto implements MapperService<CarEntity, CarDto>{
+public class MapperCarEntityToDto implements MapperService<CarEntity, CarDto>{
 
 	@Override
 	public CarDto map(CarEntity i) {

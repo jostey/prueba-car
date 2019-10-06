@@ -1,6 +1,5 @@
 package com.curso.service;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.domain.Page;
@@ -22,12 +21,6 @@ public interface UserService {
 	 * @return Devuelve un Page<UserEntity> de los usuarios. Puede ser vacío.
 	 */
 	public Page<UserEntity> findAll(Pageable page);
-	
-	/**
-	 * Busca todos los usuarios
-	 * @return Devuelve una lista de usuarios.
-	 */
-	public List<UserEntity> findAll();
 	
 	/**
 	 * Guarda un usuario

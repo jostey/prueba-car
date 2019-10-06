@@ -11,7 +11,7 @@ import com.curso.model.RentEntity;
 import com.curso.model.UserEntity;
 
 @Service
-public class mapperRentDtoToEntity implements MapperService<RentDto, RentEntity>{
+public class MapperRentDtoToEntity implements MapperService<RentDto, RentEntity>{
 
 	@Override
 	public RentEntity map(RentDto i) {
