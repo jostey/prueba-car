@@ -63,11 +63,9 @@ public class CarController {
 		
 		CarEntity carEntity = mapperCarDtoToEntity.map(car);
 		
-		// Asociamos el coche al usuario y lo guardamos
 		user.getCars().add(carEntity);
 		userService.save(user);
 		
-		// Asociamos el usuario al coche, lo guardamos y lo devolvemos para tener su id
 		carEntity.setUser(user);
 		return mapperCarEntityToDto.map(carService.save(carEntity));
 	}
@@ -85,6 +83,10 @@ public class CarController {
 		carEntity.setBrand(car.getBrand());
 		carEntity.setModel(car.getModel());
 		
+		user.getCars().remove(carEntity);
+		user.getCars().add(carEntity);
+		userService.save(user);
+
 		carService.save(carEntity);
 	}
 	
@@ -94,10 +96,11 @@ public class CarController {
 		UserEntity user = userService.findById(userId)
 				.orElseThrow(() -> new NotFoundException(NOT_FOUND_ID_USER + userId));
 		
-		carService.findById(user, id)
+		CarEntity carEntity = carService.findById(user, id)
 			.orElseThrow(() -> new NotFoundException(NOT_FOUND_ID_CAR));
 		
 		carService.removeById(id);
+		user.getCars().remove(carEntity);
 	}
 	
 	
