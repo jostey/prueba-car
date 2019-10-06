@@ -16,11 +16,11 @@ public class mapperRentDtoToEntity implements MapperService<RentDto, RentEntity>
 	@Override
 	public RentEntity map(RentDto i) {
 		
-		UserEntity user = new UserEntity(i.getUser().getId(), i.getUser().getName());
+		UserEntity user = new UserEntity(i.getUser().getId(), i.getUser().getName(), null, null);
 				
 		return new RentEntity(i.getId(), 
 				user, 
-				new CarEntity(i.getCar().getId(), i.getCar().getModel(), i.getCar().getBrand(), user), 
+				new CarEntity(i.getCar().getId(), i.getCar().getModel(), i.getCar().getBrand(), user, null), 
 				LocalDate.ofEpochDay(i.getInitDate()), LocalDate.ofEpochDay(i.getFinalDate()), i.getPrice());
 	}
 	

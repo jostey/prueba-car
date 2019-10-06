@@ -10,7 +10,7 @@ public class mapperUserDtoToEntity implements MapperService<UserDto, UserEntity>
 
 	@Override
 	public UserEntity map(UserDto i) {
-		return new UserEntity(i.getId(), i.getName());
+		return new UserEntity(i.getId(), i.getName(), null, null);
 	}
 	
 }

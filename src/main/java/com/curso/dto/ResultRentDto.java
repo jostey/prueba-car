@@ -1,15 +1,15 @@
 package com.curso.dto;
 
 public class ResultRentDto {
-	public ResultRentDto(String title, Integer initDate, Integer finalDate, Double price) {
+	public ResultRentDto(String title, Long initDate, Long finalDate, Double price) {
 		this.title = title;
 		this.initDate = initDate;
 		this.finalDate = finalDate;
 		this.price = price;
 	}
 	private String title;
-	private Integer initDate;
-	private Integer finalDate;
+	private Long initDate;
+	private Long finalDate;
 	private Double price;
 	public String getTitle() {
 		return title;
@@ -17,16 +17,16 @@ public class ResultRentDto {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public Integer getInitDate() {
+	public Long getInitDate() {
 		return initDate;
 	}
-	public void setInitDate(Integer initDate) {
+	public void setInitDate(Long initDate) {
 		this.initDate = initDate;
 	}
-	public Integer getFinalDate() {
+	public Long getFinalDate() {
 		return finalDate;
 	}
-	public void setFinalDate(Integer finalDate) {
+	public void setFinalDate(Long finalDate) {
 		this.finalDate = finalDate;
 	}
 	public Double getPrice() {
