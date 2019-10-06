@@ -6,21 +6,23 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import com.curso.model.CarEntity;
+import com.curso.model.UserEntity;
 
 public interface CarService {
 	/**
-	 * Busca coche por id
+	 * Busca coche por id perteneciente a un usuario
 	 * @param id
 	 * @return Devuelve un Optional<CarEntity>
 	 */
-	public Optional<CarEntity> findById(Integer id);
+	public Optional<CarEntity> findById(UserEntity user, Integer id);
 	
 	/**
-	 * Busca todos los coches de forma paginada
+	 * Busca todos los coches pertenecientes a un usuario de forma paginada
+	 * @param user
 	 * @param page
 	 * @return Devuelve un Page<CarEntity> de los coches. Puede ser vacío.
 	 */
-	public Page<CarEntity> findAll(Pageable page);
+	public Page<CarEntity> findAll(UserEntity user, Pageable page);
 	
 	/**
 	 * Guarda un coche

@@ -51,5 +51,30 @@ public class UserEntity {
 	public void setRents(List<RentEntity> rents) {
 		this.rents = rents;
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((cars == null) ? 0 : cars.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((rents == null) ? 0 : rents.hashCode());
+		return result;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) return true;
+		if (!(obj instanceof UserEntity)) return false;
+		
+		UserEntity other = (UserEntity) obj;
+		
+		if(getId() != null ? !getId().equals(other.getId()) : other.getId() != null)
+			return false;
+		if(getName() != null ? !getName().equals(other.getName()) : other.getName() != null)
+			return false;
+	     
+       return true;
+	}
 	
 }
