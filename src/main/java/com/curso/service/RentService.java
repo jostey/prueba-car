@@ -1,10 +1,13 @@
 package com.curso.service;
 
+import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import com.curso.model.CarEntity;
 import com.curso.model.RentEntity;
 
 public interface RentService {
@@ -14,6 +17,24 @@ public interface RentService {
 	 * @return Devuelve un Optional<RentEntity>
 	 */
 	public Optional<RentEntity> findById(Integer id);
+	
+	/**
+	 * Busca alquiler por userId
+	 * @param userId
+	 * @param page
+	 * @return Devuelve una Page<RentEntity>
+	 */
+	public Page<RentEntity> findByUserId(Integer id, Pageable page);
+	
+	/**
+	 * Busca alquiler por coche entre fechas
+	 * @param car
+	 * @param initDate
+	 * @param finalDate
+	 * @return Devuelve una List<RentEntity>
+	 */
+	public List<RentEntity> findByCar(CarEntity car, LocalDate initDate, LocalDate finalDate);
+
 	
 	/**
 	 * Busca todos los alquileres de forma paginada

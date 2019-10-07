@@ -22,7 +22,7 @@ public class MapperRentEntityToDto implements MapperService<RentEntity, RentDto>
 				LocalDateToLong(i.getInitDate()), LocalDateToLong(i.getFinalDate()), i.getPrice());
 	}
 	
-	private Long LocalDateToLong(LocalDate ld) {
+	public Long LocalDateToLong(LocalDate ld) {
 		ZoneId zoneId = ZoneId.systemDefault();
 		return ld.atStartOfDay(zoneId).toEpochSecond();
 	}

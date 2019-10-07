@@ -21,7 +21,11 @@ public class MapperRentDtoToEntity implements MapperService<RentDto, RentEntity>
 		return new RentEntity(i.getId(), 
 				user, 
 				new CarEntity(i.getCar().getId(), i.getCar().getModel(), i.getCar().getBrand(), user, null), 
-				LocalDate.ofEpochDay(i.getInitDate()), LocalDate.ofEpochDay(i.getFinalDate()), i.getPrice());
+				LongToLocalDate(i.getInitDate()), LongToLocalDate(i.getFinalDate()), i.getPrice());
+	}
+	
+	public LocalDate LongToLocalDate(long l) {
+		return LocalDate.ofEpochDay(l);
 	}
 	
 }

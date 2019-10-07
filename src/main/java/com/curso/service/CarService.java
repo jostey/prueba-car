@@ -10,6 +10,14 @@ import com.curso.model.UserEntity;
 
 public interface CarService {
 	/**
+	 * Busca coche por id
+	 * @param id
+	 * @return Devuelve un Optional<CarEntity>
+	 */
+	public Optional<CarEntity> findById(Integer id);
+	
+	
+	/**
 	 * Busca coche por id perteneciente a un usuario
 	 * @param id
 	 * @return Devuelve un Optional<CarEntity>

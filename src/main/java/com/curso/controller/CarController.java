@@ -97,7 +97,7 @@ public class CarController {
 				.orElseThrow(() -> new NotFoundException(NOT_FOUND_ID_USER + userId));
 		
 		CarEntity carEntity = carService.findById(user, id)
-			.orElseThrow(() -> new NotFoundException(NOT_FOUND_ID_CAR));
+			.orElseThrow(() -> new NotFoundException(NOT_FOUND_ID_CAR + id));
 		
 		carService.removeById(id);
 		user.getCars().remove(carEntity);

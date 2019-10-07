@@ -32,15 +32,17 @@ public class CarServiceImpl implements CarService {
 
 	@Override
 	public CarEntity save(CarEntity car) {
-		// TODO Auto-generated method stub
-		return null;
+		return carRepository.save(car);
 	}
 
 	@Override
 	public void removeById(Integer id) {
-		// TODO Auto-generated method stub
-		
+		carRepository.deleteById(id);		
 	}
-	
+
+	@Override
+	public Optional<CarEntity> findById(Integer id) {
+		return carRepository.findById(id);
+	}
 
 }
