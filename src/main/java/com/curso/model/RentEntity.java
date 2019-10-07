@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class RentEntity {
-
+	public RentEntity() {}
 	public RentEntity(Integer id, UserEntity user, CarEntity car, LocalDate initDate, LocalDate finalDate,
 			Double price) {
 		this.id = id;

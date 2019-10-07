@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.curso.exception.NotFoundException;
 
-@ControllerAdvice(basePackages= "com.at.test.curso.controller")
+@ControllerAdvice(basePackages= "com.curso.controller")
 public class ControllerExceptionAdvicer {
 	
 	@ResponseBody

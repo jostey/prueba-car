@@ -10,7 +10,7 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class UserEntity {
-
+	public UserEntity() {}
 	public UserEntity(Integer id, String name, List<CarEntity> cars, List<RentEntity> rents) {
 		this.id = id;
 		this.name = name;

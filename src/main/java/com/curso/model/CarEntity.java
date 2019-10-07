@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class CarEntity {
-
+	public CarEntity() {}
 	public CarEntity(Integer id, String model, String brand, UserEntity user, List<RentEntity> rents) {
 		this.id = id;
 		this.model = model;
