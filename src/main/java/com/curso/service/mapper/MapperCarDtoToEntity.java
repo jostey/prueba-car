@@ -1,10 +1,12 @@
 package com.curso.service.mapper;
 
+import java.util.ArrayList;
+
 import org.springframework.stereotype.Service;
 
 import com.curso.dto.CarDto;
 import com.curso.model.CarEntity;
-import com.curso.model.UserEntity;
+import com.curso.model.RentEntity;
 
 @Service
 public class MapperCarDtoToEntity implements MapperService<CarDto, CarEntity>{
@@ -12,8 +14,8 @@ public class MapperCarDtoToEntity implements MapperService<CarDto, CarEntity>{
 	@Override
 	public CarEntity map(CarDto i) {
 		return new CarEntity(i.getId(), i.getModel(), i.getBrand(), 
-				new UserEntity(i.getUser().getId(), i.getUser().getName(), null, null)
-				, null);
+				null
+				, new ArrayList<RentEntity>());
 	}
 
 }
