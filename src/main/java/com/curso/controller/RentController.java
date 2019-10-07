@@ -1,7 +1,5 @@
 package com.curso.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -40,14 +38,13 @@ public class RentController {
 	private static final String NOT_FOUND_ID_CAR = "No existe el coche con id: ";
 	private static final String NOT_FOUND_ID_USER = "No existe el usuario con id: ";
 	private static final String NOT_FOUND_ID_RENT = "No existe el alquiler con id: ";
-	private static final String NOT_FOUND_RENT_CAR = "No hay ningún alquiler asociado en esa fecha para el id de coche: ";
 	
 	@GetMapping
 	public Page<RentDto> findAll(@RequestParam(value="page", defaultValue="0", required=false) Integer page,
 								 @RequestParam(value="size", defaultValue="10",required=false) Integer size,
 								 @RequestParam(value="user", required=false) Integer userId) throws NotFoundException{
 		
-		return (userId != null)
+		return (userId == null)
 				? rentService.findAll(PageRequest.of(page, size))
 							.map(mapperRentEntityToDto::map)
 				: rentService.findByUserId(userId, PageRequest.of(page, size))
@@ -140,20 +137,7 @@ public class RentController {
 								   @RequestParam(value="init", required=true) Long initDate,
 								   @RequestParam(value="final", required=true) Long finalDate) throws NotFoundException{
 		
-		CarEntity car = carService.findById(carId)
-				.orElseThrow(() -> new NotFoundException(NOT_FOUND_ID_CAR + carId));
-		
-		List<RentEntity> rents = rentService.findByCar(car, 
-				mapperRentDtoToEntity.LongToLocalDate(initDate), 
-				mapperRentDtoToEntity.LongToLocalDate(finalDate));
-		
-		Double profit = 0.0;
-		for(RentEntity r : rents) {
-			profit += r.getPrice();
-		}
-		
-		if(profit != 0.0) return new ResultRentDto(car.getBrand()+" "+car.getModel(), initDate, finalDate, profit);
-		else throw new NotFoundException(NOT_FOUND_RENT_CAR + carId);
+		return rentService.profitByCarAndDate(carId, initDate, finalDate);
 	}
 	
 }
