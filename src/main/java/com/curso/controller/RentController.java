@@ -27,6 +27,7 @@ import com.curso.service.UserServiceImpl;
 import com.curso.service.mapper.MapperRentDtoToEntity;
 import com.curso.service.mapper.MapperRentEntityToDto;
 
+
 @RestController
 @RequestMapping("/rent")
 public class RentController {
@@ -39,6 +40,7 @@ public class RentController {
 	private static final String NOT_FOUND_ID_CAR = "No existe el coche con id: ";
 	private static final String NOT_FOUND_ID_USER = "No existe el usuario con id: ";
 	private static final String NOT_FOUND_ID_RENT = "No existe el alquiler con id: ";
+	private static final String NOT_FOUND_RENT_CAR = "No hay ningún alquiler asociado en esa fecha para el id de coche: ";
 	
 	@GetMapping
 	public Page<RentDto> findAll(@RequestParam(value="page", defaultValue="0", required=false) Integer page,
@@ -150,10 +152,8 @@ public class RentController {
 			profit += r.getPrice();
 		}
 		
-		return new ResultRentDto(car.getBrand()+" "+car.getModel(), 
-								initDate,
-								finalDate,
-								profit);
+		if(profit != 0.0) return new ResultRentDto(car.getBrand()+" "+car.getModel(), initDate, finalDate, profit);
+		else throw new NotFoundException(NOT_FOUND_RENT_CAR + carId);
 	}
 	
 }
