@@ -30,9 +30,8 @@ public class UserController {
 	private static final String NOT_FOUND_ID_USER = "No existe el usuario con id: ";
 	
 	@GetMapping
-	public Page<UserDto> findAll(@PathVariable("userId") Integer userId,
-			@RequestParam(value="page", defaultValue="0", required=false) Integer page,
-			@RequestParam(value="size", defaultValue="10",required=false) Integer size) throws NotFoundException{
+	public Page<UserDto> findAll(@RequestParam(value="page", defaultValue="0", required=false) Integer page,
+								 @RequestParam(value="size", defaultValue="10",required=false) Integer size) throws NotFoundException{
 		
 		return userService.findAll(PageRequest.of(page,size))
 				.map(mapperUserEntityToDto::map);
