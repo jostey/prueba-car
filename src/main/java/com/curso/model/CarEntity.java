@@ -1,5 +1,6 @@
 package com.curso.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -30,7 +31,7 @@ public class CarEntity {
 	@ManyToOne(cascade = CascadeType.PERSIST, fetch=FetchType.LAZY)
 	private UserEntity user;
 	@OneToMany(mappedBy = "car")
-	private List<RentEntity> rents;
+	private List<RentEntity> rents = new ArrayList<RentEntity>();
 	
 	public Integer getId() {
 		return id;

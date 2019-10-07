@@ -1,5 +1,6 @@
 package com.curso.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -22,9 +23,9 @@ public class UserEntity {
 	private Integer id;
 	private String name;
 	@OneToMany(mappedBy = "user")
-	private List<CarEntity> cars;
+	private List<CarEntity> cars = new ArrayList<CarEntity>();
 	@OneToMany(mappedBy = "user")
-	private List<RentEntity> rents;
+	private List<RentEntity> rents = new ArrayList<RentEntity>();
 	
 	
 	public Integer getId() {
